@@ -1,5 +1,6 @@
-#
-# This file is part of Ansible
+# -*- coding: utf-8 -*-
+
+# This file is part of Ansible by Red Hat
 #
 # Ansible is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,44 +17,37 @@
 
 
 class ModuleDocFragment(object):
-
     # Standard files documentation fragment
-    DOCUMENTATION = """
+    DOCUMENTATION = '''
 options:
-    action:
-        description:
-            - post, get or delete
-        required: true
-        default: null
-        choices: ['post','get','delete']
-        aliases: []
-    host:
-        description:
-            - IP Address or hostname of APIC resolvable by Ansible control host
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    username:
-        description:
-            - Username used to login to the switch
-        required: true
-        default: 'admin'
-        choices: []
-        aliases: []
-    password:
-        description:
-            - Password used to login to the switch
-        required: true
-        default: null
-        choices: []
-        aliases: []
-    protocol:
-        description:
-            - Dictates connection protocol to use
-        required: false
-        default: https
-        choices: ['http', 'https']
-        aliases: []
+  hostname:
+    description:
+    - IP Address or hostname of APIC resolvable by Ansible control host.
+    required: true
+    aliases: [ host ]
+  username:
+    description:
+    - The username to use for authentication.
+    required: true
+    default: admin
+    aliases: [ user ]
+  password:
+    description:
+    - The password to use for authentication.
+    required: true
+  timeout:
+    description:
+    - The socket level timeout in seconds.
+    default: 30
+  use_ssl:
+    description:
+    - If C(no), an HTTP connection will be used instead of the default HTTPS connection.
+    type: bool
+    default: 'yes'
+  validate_certs:
+    description:
+    - If C(no), SSL certificates will not be validated.
+    - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+    type: bool
+    default: 'yes'
 '''
-
